@@ -80,6 +80,35 @@ const {Profile}=require('../models');
     res.status(status).send({ message });
   }
 
+
+  const deletePhoto=async(req,res)=>{
+    const { email} = req.params;
+    console.log("removing"+req.params)
+    let status;
+    let message;
+    const photos=req.body.photo;
+    console.log(photos);
+    console.log(email);
+    try {
+      await Profile.findOneAndUpdate({ email:email},{
+        $pull:{
+          photos:photos
+        }
+      });
+      
+      status = 200;
+      message = "Added photo in  "+email;
+  
+    } catch(err) {
+      console.log('Some error occured', err);
+      console.log(err.stack);
+      status = 400;
+      message = 'Bad request!!!'
+    }
+  
+    res.status(status).send({ message });
+  }
+
   //update by Id 
   const updateById=async(req,res)=>{
     const { email} = req.params;
@@ -156,5 +185,6 @@ const getAllUser = async (req, res) => {
       updateById,
       getAllUser,
       updateFriends,
-      uploadPhoto
+      uploadPhoto,
+      deletePhoto
   }

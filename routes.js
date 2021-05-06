@@ -14,6 +14,7 @@ profileRouter.put('/:email', profileController.updateById);
 profileRouter.get('/', profileController.getAllUser);
 profileRouter.put('/friend/:email', profileController.updateFriends);
 profileRouter.put('/photo/:email', profileController.uploadPhoto);
+profileRouter.put('/removephoto/:email', profileController.deletePhoto);
 
 
 const routes = (app) => {
