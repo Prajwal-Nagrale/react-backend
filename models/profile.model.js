@@ -17,7 +17,7 @@ const Profile = new Schema({
     gender:{type:String},
     photos:[String],
     profession:{type:String},
-    img:{type:String},
+    profileImage:{type:String},
     createdAt: {
       type: Number,
       required: true

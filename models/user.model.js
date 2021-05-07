@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');//mongoose module
 const Schema = mongoose.Schema;
 
+//structure of table
 const User = new Schema({
     userName: {  type: String, required: true },
     email: { type: String, required: true, unique: true },

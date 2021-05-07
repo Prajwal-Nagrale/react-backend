@@ -1,18 +1,18 @@
-const express = require('express');
+const express = require('express');//express module
 const userController = require('./controllers/user.controller');
 const userRouter = express.Router();
-userRouter.post('/', userController.create);
-userRouter.get('/:email', userController.getByCustID);
+userRouter.post('/', userController.createNewUser);
+userRouter.get('/:email', userController.getUserDetails);
 userRouter.get('/login/auth', userController.auth ,(req, res) => { res.status(200).send('welcome ' + req.userName)});
 userRouter.post('/login', userController.loginFunction);
 
 
 const profileController=require('./controllers/profile.controller');
 const profileRouter=express.Router();
-profileRouter.get('/:email', profileController.getByCustID);
-profileRouter.put('/:email', profileController.updateById);
+profileRouter.get('/:email', profileController.getUserProfile);
+profileRouter.put('/:email', profileController.updateUserProfile);
 profileRouter.get('/', profileController.getAllUser);
-profileRouter.put('/friend/:email', profileController.updateFriends);
+profileRouter.put('/friend/:email', profileController.updateFriendsList);
 profileRouter.put('/photo/:email', profileController.uploadPhoto);
 profileRouter.put('/removephoto/:email', profileController.deletePhoto);
 
