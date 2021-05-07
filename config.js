@@ -1,5 +1,5 @@
 module.exports = {
-    mongoUrl: 'mongodb+srv://PRAJNAGR:Pj269145@cluster0.fqxhx.mongodb.net/socialNetworking?retryWrites=true&w=majority',
+    mongoUrl: 'your mongo Url',
     privateKey:'Social Networking'
 }
 
